@@ -3,4 +3,4 @@ export FLASK_APP=my_website
 
 
 flask initdb#initializing the database
-falsk run#running the application
+flask run#running the application
