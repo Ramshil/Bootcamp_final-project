@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% block main %}
+    <h1 class="text-muted" >{{name}} </h1>
+    <p>
+      <form action="{{url_for('tasks.edit_task',id=id)}}" method="POST">
+
+          <div class="mb-3">
+          
+          <label class="form-label">Status</label><br/>
+          <input type="radio" id="Due" name="status" value="Due" checked>
+          <label for="Due">Due</label>
+          <input type="radio" id="Overdue" name="status" value="Overdue">
+          <label for="Overdue">Overdue</label>
+          <input type="radio" id="Done" name="status" value="Done">
+          <label for="Done">Done</label>
+          </div>
+
+          <div class="mb-3">
+          <label for="name">Name of task</label><br>
+          <input type="text" id="name" name="name" value="{{name}}" required><br>
+          </div>
+          
+          <div class="mb-3">
+          <label class="form-label">Day</label><br/>
+          {%for week_day in week_days %}
+          {%if week_day == day %}
+          <input type="radio" id="{{week_day}}" name="day" value="{{week_day}}" checked>
+          <label for="{{week_day}}">{{week_day}}</label>
+          {% else %}
+          <input type="radio" id="{{week_day}}" name="day" value="{{week_day}}">
+          <label for="{{week_day}}">{{week_day}}</label>
+          {% endif %}
+          {%endfor%}
+          </div>
+          
+          <div class="mb-3">
+          <label for="Time">TIme of task</label><br>
+          <input type="text" id="Time_hours" name="Time_hours" value="{{Time_hours}}" required>
+          :
+          <input type="text" id="Time_minutes" name="Time_minutes" value="{{Time_minutes}}" required>
+          </div>
+          
+          
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+
+      </div>
+      </form>
+    </p>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

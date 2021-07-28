@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block main %}
+    
+    <p>
+      <form action="{{url_for('tasks.add_task')}}" method="POST">
+
+          <div class="mb-3">
+          <label class="form-label">Status</label><br/>
+          <input type="radio" id="Due" name="status" value="Due" checked>
+          <label for="Due">Due</label>
+          <input type="radio" id="Overdue" name="status" value="Overdue">
+          <label for="Overdue">Overdue</label>
+          <input type="radio" id="Done" name="status" value="Done">
+          <label for="Done">Done</label>
+          </div>
+
+          <div class="mb-3">
+          <label for="name">Name of task</label><br>
+          <input type="text" id="name" name="name" required><br>
+          </div>
+          
+          <div class="mb-3">
+          <label class="form-label">Day</label><br/>
+          {%for week_day in week_days %}
+          <input type="radio" id="{{week_day}}" name="day" value="{{week_day}}" REQUIRED>
+          <label for="{{week_day}}">{{week_day}}</label>
+          {%endfor%}
+          </div>
+          
+          <div class="mb-3">
+          <label for="Time">TIme of task  (hh:mm , for eg. 01:23 in 24 HOURS FORMAT) </label><br>
+          <input type="text" id="Time_hours" name="Time_hours" required>
+          :
+          <input type="text" id="Time_minutes" name="Time_minutes" required><br>
+          </div>
+          
+          
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Add</button>
+          </div>
+
+      </div>
+      </form>
+    </p>
+
+{% endblock %}
