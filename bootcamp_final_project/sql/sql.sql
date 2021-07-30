@@ -1,12 +1,4 @@
-DROP TABLE IF EXISTS time cascade;
 DROP TABLE IF EXISTS task cascade;
-
-
-CREATE TABLE time (
-       id serial primary key,
-       time_of_event serial UNIQUE NOT NULL
-       );
-    
 
 
 CREATE TABLE task (
