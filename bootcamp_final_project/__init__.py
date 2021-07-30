@@ -1,8 +1,7 @@
-import  random
 from flask import Flask, render_template
 
 def create_app():
-    app = Flask("bootcamp_final_project")
+    app = Flask("my_website")
     app.config.from_mapping(
         DATABASE="tasks"
     )
@@ -15,14 +14,17 @@ def create_app():
 
     @app.route("/")
     def index():
-        conn = db.get_db()
-        curs = conn.cursor()
-        curs.execute("select count(*) from task")
-        count = curs.fetchone()[0]
-        curs.execute("select count(*) from task where status=%s",("Overdue",))
-        Overdue = curs.fetchone()[0]
-        return render_template('index.html',count=count,Overdue=Overdue)
-
+     conn = db.get_db() 
+     cursor = conn.cursor()
+     cursor.execute("select count(*) from task")
+     count = cursor.fetchone()[0]
+     cursor.execute("select count(*) from task where status=%s",("Due",))
+     Due = cursor.fetchone()[0]
+     cursor.execute("select count(*) from task where status=%s",("Overdue",))
+     Overdue = cursor.fetchone()[0]
+     cursor.execute("select count(*) from task where status=%s",("Done",))
+     Done = cursor.fetchone()[0]
+     return render_template("index.html", Due=Due,Overdue=Overdue,count=count,Done=Done) 
 
     return app
     
