@@ -1,4 +1,4 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
     {%block main %}
 
 <table class="table table-striped table-hover">
@@ -17,10 +17,17 @@
       <tr>
         <td> <a href="{{url_for('tasks.edit_task', id=id)}}">{{id}} </a></td>
         <td> {{name}} </td>
-        <td> {{day}} </td>
+        <td > {{day}} </td>
         <td> {{time_hours}}:{{time_minutes}} </td>
-        <td> {{status}} </td>
-        
+        {% if status=="Due"%}
+        <td> <a href="{{url_for('tasks.due_task')}}">{{status}} </a></td>
+        {% endif %}
+        {% if status=="Overdue"%}
+        <td> <a href="{{url_for('tasks.overdue_task')}}">{{status}} </a></td>
+        {% endif %}
+        {% if status=="Done"%}
+        <td> <a href="{{url_for('tasks.done_task')}}">{{status}} </a></td>
+        {% endif %}
         
         
       </tr>
@@ -32,8 +39,6 @@
   *click on sl numbers to edit
 </p>
    {%endblock%}
-
-
 
 
 
