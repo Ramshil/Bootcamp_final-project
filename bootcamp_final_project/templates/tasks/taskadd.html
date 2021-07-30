@@ -1,19 +1,9 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block main %}
     
     <p>
       <form action="{{url_for('tasks.add_task')}}" method="POST">
-
-          <div class="mb-3">
-          <label class="form-label">Status</label><br/>
-          <input type="radio" id="Due" name="status" value="Due" checked>
-          <label for="Due">Due</label>
-          <input type="radio" id="Overdue" name="status" value="Overdue">
-          <label for="Overdue">Overdue</label>
-          <input type="radio" id="Done" name="status" value="Done">
-          <label for="Done">Done</label>
-          </div>
 
           <div class="mb-3">
           <label for="name">Name of task</label><br>
@@ -29,7 +19,7 @@
           </div>
           
           <div class="mb-3">
-          <label for="Time">TIme of task  (hh:mm , for eg. 01:23 in 24 HOURS FORMAT) </label><br>
+          <label for="Time">TIme (hh:mm , for eg. 01:23 in  <mark> 24 HOURS FORMAT</mark>) </label><br>
           <input type="text" id="Time_hours" name="Time_hours" required>
           :
           <input type="text" id="Time_minutes" name="Time_minutes" required><br>
