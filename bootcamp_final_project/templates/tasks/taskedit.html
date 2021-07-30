@@ -6,7 +6,6 @@
       <form action="{{url_for('tasks.edit_task',id=id)}}" method="POST">
 
           <div class="mb-3">
-          
           <label class="form-label">Status</label><br/>
           {%for Status in statuses %}
           {%if Status ==status %}
