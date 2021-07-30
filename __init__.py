@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 def create_app():
-    app = Flask("my_website")
+    app = Flask("bootcamp_final_project")
     app.config.from_mapping(
         DATABASE="tasks"
     )
