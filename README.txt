@@ -2,7 +2,7 @@ commands to run
 ---------------
 
 export FLASK_ENV=development
-export FLASK_APP=my_website
+export FLASK_APP=bootcamp_final_project
 
 
 flask initb # initializing the database (Need to do only once)
