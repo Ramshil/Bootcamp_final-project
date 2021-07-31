@@ -86,8 +86,7 @@ def add_task():
         conn.commit()
         return redirect(url_for("tasks.alltasks"), 302)
 
-
-    @bp.route("/<id>/edit", methods=["GET", "POST",])
+@bp.route("/<id>/edit", methods=["GET", "POST",])
 def edit_task(id): 
     conn = db.get_db()
     cursor = conn.cursor()
