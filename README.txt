@@ -10,4 +10,4 @@ flask run # running the web application
 
 
 
-*User can schedfule tasks for a coming week only.
+*User can schedule tasks for a coming week only.
