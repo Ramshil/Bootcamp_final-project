@@ -22,7 +22,6 @@ def init_db():
     cur = db.cursor()
     cur.execute(sql_code)
     
-    click.echo("Tasks added")
     cur.close()
     db.commit()
     close_db()
